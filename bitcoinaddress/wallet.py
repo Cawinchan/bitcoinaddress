@@ -20,7 +20,12 @@ class Wallet:
         return """%s\n%s""" % (self.key.__str__(self.testnet),
                                self.address.__str__(self.testnet))
 
+    def public_key(self):
+        return self.address.__dict__['mainnet'].__dict__['pubaddr1']
+    
+    def private_key(self):
+        return self.key.__dict__['mainnet'].__dict__['wif']
+
 
 if __name__ == "__main__":
     wallet = Wallet()
-    print(wallet)
